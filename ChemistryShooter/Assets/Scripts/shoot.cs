@@ -11,7 +11,7 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Fire1")){
+        if(Input.GetMouseButtonDown(0)){
             clone=Instantiate(bala,transform.position,transform.rotation);
             clone.velocity=transform.TransformDirection(0,0,-speed);
             Destroy(clone.gameObject,2);
