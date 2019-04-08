@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collision : MonoBehaviour
+public class electron : MonoBehaviour
 {
     // Start is called before the first frame update
     public int destroyCount;
-    private int electronCount;
+    public int electronCount;
     void Start()
     {
         electronCount = 0;
@@ -16,7 +16,7 @@ public class collision : MonoBehaviour
     void Update()
     {
         if(electronCount == destroyCount){
-          Destroy(gameObject);
+          Destroy(transform.parent.gameObject);
         }
     }
 
