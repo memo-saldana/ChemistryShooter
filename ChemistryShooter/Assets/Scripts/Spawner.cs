@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 { 
@@ -14,6 +15,7 @@ public class Spawner : MonoBehaviour
   public int enemiesAmount;
 
   int randEnemy;
+
     // Start is called before the first frame update
 
     void Start()
@@ -36,7 +38,7 @@ public class Spawner : MonoBehaviour
         randEnemy = Random.Range(0, enemies.Length );
 
         Vector3 spawnPosition = new Vector3( Random.Range( -spawnValues.x, spawnValues.x) , 0.5f, Random.Range( -spawnValues.z, spawnValues.z) );
-        Debug.Log(spawnPosition);
+        // Debug.Log(spawnPosition);
         Instantiate(enemies[randEnemy],  spawnPosition, gameObject.transform.rotation );
 
         yield return new WaitForSeconds(spawnWait);

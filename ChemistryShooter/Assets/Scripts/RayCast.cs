@@ -6,8 +6,15 @@ public class RayCast : MonoBehaviour
 {
     
     public Camera cam;
+    public GameObject shootingPoint;
+    shoot ammo;
     electron el;
     // Update is called once per frame
+
+    void Start()
+    {
+      ammo = shootingPoint.GetComponent<shoot>();
+    }
     void Update()
     {
         if(Input.GetMouseButtonDown(1)){
@@ -18,7 +25,9 @@ public class RayCast : MonoBehaviour
               if(hit.transform.tag=="Element"){
                 Debug.Log("ELEMENT");
                 el = hit.transform.GetComponent<electron>();
-                el.electronCount--;
+                el.electronCount++;
+                ammo.electrons++;
+
               }
           else
               print("I'm looking at nothing!");
