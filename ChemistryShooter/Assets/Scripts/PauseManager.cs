@@ -28,6 +28,7 @@ public class PauseManager : MonoBehaviour {
     {
         canvas.enabled = !canvas.enabled;
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        Cursor.visible = !Cursor.visible;
     }
     
     public void Quit()

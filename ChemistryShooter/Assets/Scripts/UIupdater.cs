@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIupdater : MonoBehaviour 
@@ -27,13 +28,16 @@ public class UIupdater : MonoBehaviour
   void Update()
   {
     ammo.text = "Electrons: "+shootPoint.GetComponent<shoot>().electrons;
+    if(health>0){
+      healthText.text = "Health: "+health;
+    } else {
+      SceneManager.LoadScene("GameOver");
+    }
     if(enemies>0){
-
       enemiesHUD.text = "Enemies Left: "+enemies; 
     } else {
-      enemiesHUD.text = "No more enemies left.";
+      SceneManager.LoadScene("Win");
     }
-    healthText.text = "Health: "+health;
 
   }
 

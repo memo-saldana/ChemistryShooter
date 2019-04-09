@@ -11,16 +11,22 @@ public class electron : MonoBehaviour
     public Text label;
     public string labelname;
     UIupdater ui;
+    AudioSource grunt;
+    AudioSource pop;
     void Start()
     {
         electronCount = 0;
         ui = GameObject.Find("UIupdater").GetComponent<UIupdater>();
+        grunt = GameObject.Find("Grunt").GetComponent<AudioSource>();
+        pop = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if(electronCount == destroyCount){
+          pop.time = 0f;
+          pop.Play();
           Debug.Log("Destroyed");
           Destroy(gameObject);
           ui.enemies--;
@@ -36,8 +42,10 @@ public class electron : MonoBehaviour
         Destroy(col.gameObject);
       } else if( col.gameObject.name == "RigidBodyFPSController"){
         Destroy(gameObject);
-        ui.enemies--;
+
+        grunt.Play();
         ui.health -=damage;
+        ui.enemies--;
       }
       // Debug.Log(electronCount);
     }

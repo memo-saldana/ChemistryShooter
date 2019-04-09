@@ -11,16 +11,18 @@ public class shoot : MonoBehaviour
   public float speed;
   Rigidbody clone;
 
+  AudioSource audioShot;
+
   void Start()
   {
-    
+    audioShot = GetComponent<AudioSource>();
   }
 
     // Update is called once per frame
     void Update()
     {
-        
         if(Input.GetMouseButtonDown(0) && electrons>0){
+            audioShot.Play();
             clone=Instantiate(bala,transform.position,transform.rotation);
             clone.velocity=transform.TransformDirection(0,0,-speed);
             electrons--;

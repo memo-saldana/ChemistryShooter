@@ -7,6 +7,7 @@ public class RayCast : MonoBehaviour
     
     public Camera cam;
     public GameObject shootingPoint;
+    AudioSource suction;
     shoot ammo;
     electron el;
     // Update is called once per frame
@@ -14,10 +15,14 @@ public class RayCast : MonoBehaviour
     void Start()
     {
       ammo = shootingPoint.GetComponent<shoot>();
+      suction = GetComponent<AudioSource>();
+      suction.time=0.34f;
     }
     void Update()
     {
         if(Input.GetMouseButtonDown(1)){
+          suction.time=0.34f;
+          suction.Play();
           Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
           RaycastHit hit;
           if (Physics.Raycast(ray, out hit))
