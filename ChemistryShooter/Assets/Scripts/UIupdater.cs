@@ -27,16 +27,18 @@ public class UIupdater : MonoBehaviour
 
   void Update()
   {
-    ammo.text = "Electrons: "+shootPoint.GetComponent<shoot>().electrons;
+    ammo.text = "Oxygens: "+shootPoint.GetComponent<shoot>().electrons;
     if(health>0){
       healthText.text = "Health: "+health;
     } else {
       SceneManager.LoadScene("GameOver");
+    
     }
     if(enemies>0){
       enemiesHUD.text = "Enemies Left: "+enemies; 
     } else {
       SceneManager.LoadScene("Win");
+     
     }
 
   }
