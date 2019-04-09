@@ -23,12 +23,19 @@ public class PauseManager : MonoBehaviour {
             Pause();
         }
     }
-    
     public void Pause()
     {
-        canvas.enabled = !canvas.enabled;
-        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-        Cursor.visible = !Cursor.visible;
+        if(canvas.enabled){
+          Time.timeScale = 1;
+          Cursor.visible = false;
+          Cursor.lockState = CursorLockMode.Locked;
+          canvas.enabled = false;
+        } else {
+          Time.timeScale = 0;
+          Cursor.visible = true;
+          Cursor.lockState = CursorLockMode.None;
+          canvas.enabled = true;
+        }
     }
     
     public void Quit()

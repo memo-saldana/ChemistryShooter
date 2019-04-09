@@ -21,7 +21,7 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && electrons>0){
+        if( Input.GetMouseButtonDown(0) && electrons>0 && Cursor.lockState == CursorLockMode.Locked ){
             audioShot.Play();
             clone=Instantiate(bala,transform.position,transform.rotation);
             clone.velocity=transform.TransformDirection(0,0,-speed);

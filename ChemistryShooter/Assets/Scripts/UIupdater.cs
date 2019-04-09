@@ -32,15 +32,12 @@ public class UIupdater : MonoBehaviour
       healthText.text = "Health: "+health;
     } else {
       SceneManager.LoadScene("GameOver");
-    
     }
     if(enemies>0){
       enemiesHUD.text = "Enemies Left: "+enemies; 
     } else {
       SceneManager.LoadScene("Win");
-     
     }
-
   }
 
 }
